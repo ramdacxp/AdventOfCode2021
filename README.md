@@ -1,2 +1,3 @@
 # AdventOfCode2021
-Program snippets to solve Advent Of Code 2021
+
+My program snippets to solve the daily puzzles of [Advent Of Code 2021](https://adventofcode.com/2021).
