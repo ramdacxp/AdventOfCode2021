@@ -1,6 +1,7 @@
 ﻿
 var h = 0;
 var d = 0;
+var a = 0;
 
 var input = File.ReadAllLines("input.txt");
 foreach (var line in input)
@@ -9,9 +10,16 @@ foreach (var line in input)
     var amount = Convert.ToInt32(splitted[1]);
     switch (splitted[0])
     {
-        case "up": d -= amount; break;
-        case "down": d += amount; break;
-        case "forward": h += amount; break;
+        case "up":
+            a -= amount;
+            break;
+        case "down":
+            a += amount;
+            break;
+        case "forward":
+            h += amount;
+            d += (a * amount);
+            break;
     }
 }
 
