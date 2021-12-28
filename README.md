@@ -2,6 +2,8 @@
 
 ![AoC](aoc.png)
 
-These are the program snippets to solve the daily puzzles of [Advent Of Code 2021](https://adventofcode.com/2021).
+These are my program snippets to solve the daily puzzles of [Advent Of Code 2021](https://adventofcode.com/2021).
 
-Projects use the [DotNet SDK 6.0](http://dot.net) and can be started by executing `dotnet run` within the daily folders.
+Each day contains a C# console app project (using [DotNet SDK 6.0](http://dot.net)), which can be executed via `dotnet run`.
+The Puzzles (together with the answers!) are available in `README.txt`.
+Required input data for each puzzle is available in `input.txt`.
