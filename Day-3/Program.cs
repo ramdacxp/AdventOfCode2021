@@ -32,6 +32,23 @@ string CalcBits(string[] input, bool mostCommon)
     return result;
 }
 
+string Filter(string[] input, int position, bool mostCommon)
+{
+    Console.WriteLine($"Filtering {input.Length} items on pos {position} ...");
+    var bits = CalcBits(input, mostCommon);
+    Console.WriteLine($"- Using bitmask {bits} and filter {bits[position]}");
+
+    var filtered = input.Where(line => line[position] == bits[position]).ToList();
+    Console.WriteLine($"- Found {filtered.Count} items");
+    if (filtered.Count == 1)
+    {
+        Console.WriteLine($"- Result is {filtered[0]}");
+        return filtered[0];
+    }
+
+    return Filter(filtered.ToArray(), position + 1, mostCommon);
+}
+
 // PART 1
 
 var input = File.ReadAllLines("input.txt");
@@ -46,3 +63,13 @@ Console.WriteLine($"Epsilon Rate: {epsilonStr}: {epsilon}");
 Console.WriteLine($"Power consumption: {gamma * epsilon}");
 
 // PART 2
+var oxyStr = Filter(input, 0, true);
+var oxy = Convert.ToInt32(oxyStr, 2);
+
+var co2Str = Filter(input, 0, false);
+var co2 = Convert.ToInt32(co2Str, 2);
+
+Console.WriteLine($"Oxygen generator rating: {oxyStr}: {oxy}");
+Console.WriteLine($"CO2 scrubber rating: {co2Str}: {co2}");
+Console.WriteLine($"LIfe support rating: {oxy * co2}");
+
